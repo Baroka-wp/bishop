@@ -37,7 +37,7 @@ class Startup < ApplicationRecord
     if decription_video.present?
       decription_video
     else
-      '/video.mp4'
+      'https://www.youtube.com/watch?v=NGi5ontIT3w'
     end
   end
 end
