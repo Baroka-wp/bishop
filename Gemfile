@@ -21,14 +21,19 @@ gem 'omniauth-twitter'
 gem 'youtube_it'
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-
+  gem 'spring'
+  gem 'rspec-rails'
+  gem 'spring-commands-rspec'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'launchy'
 end
 
 group :development do
   gem 'dotenv-rails'
   gem 'letter_opener_web'
   gem 'listen', '~> 3.2'
-  gem 'spring'
+
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
 end
@@ -45,3 +50,4 @@ gem 'kaminari'
 gem 'mini_magick'
 gem 'rubocop', require: false
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'unicorn'
