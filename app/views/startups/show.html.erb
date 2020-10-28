@@ -33,12 +33,8 @@
       <hr>
       <p><%= @startup.resume %></p>
       <hr>
+      <video controls width="100%" height="360px" src="<%= @startup.description_thumbnail %>"</video>
     </div>
-  </div>
-  <div class="container text-center">
-    <p>
-      <%= get_video_iframe(@startup.description_thumbnail) %>
-    </p>
   </div>
   <br>
   <br>

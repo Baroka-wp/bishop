@@ -1,5 +1,5 @@
 class Startup < ApplicationRecord
-  #mount_uploader :decription_video, DecriptionUploader
+  mount_uploader :decription_video, DecriptionUploader
   mount_uploader :banner, BannerUploader
 
   validates :address, presence: true, null: false

@@ -49,8 +49,9 @@
       description video <br>
       <small>It is always more impactful to present your
         company by staging it in a video.
-      you can add your video on youtube and put the link here</small> <br>
-      <%= form.text_field :decription_video,class:"btn btn-sm btn-warning" %>
+      you can add your video on here</small> <br>
+      <%= form.file_field :decription_video,class:"btn btn-sm btn-warning" %>
+      <%= form.hidden_field :decription_video_cache %>
       <br>
       <br>
       <div class="actions">
