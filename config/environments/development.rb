@@ -30,16 +30,16 @@ Rails.application.configure do
   config.assets.quiet = true
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  #config.action_mailer.delivery_method = :smtp
-  #host = 'localhost:3000' # replace with your own url
+  config.action_mailer.delivery_method = :smtp
+  host = 'localhost:3000' # replace with your own url
 
-  # SMTP settings for gmail
-  #config.action_mailer.smtp_settings = {
-  #  address: 'smtp.gmail.com',
-  #  port: 587,
-  #  user_name: 'birotori@gmail.com',
-  #  password: 'rikaelbiz',
-  #  authentication: 'plain',
-  #  enable_starttls_auto: true
-  #}
+   SMTP settings for gmail
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: 587,
+    user_name: 'birotori@gmail.com',
+    password: 'rikaelbiz',
+    authentication: 'plain',
+   enable_starttls_auto: true
+  }
 end
