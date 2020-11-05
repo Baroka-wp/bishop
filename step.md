@@ -283,7 +283,14 @@ https://console.developers.google.com/apis/credentials/oauthclient/98071276676-6
 > http://localhost:3000/users/auth/google/callback
 
 ## relationship function
+* rails g model relationship follower_id:integer followed_id:integer
+ajouter les index à la migration 
 
+  add_index :relationships, :follower_id
+    add_index :relationships, :followed_id
+    add_index :relationships, [:follower_id, :followed_id], unique: true
+    
+    
 * générer le controller de User
 `rails g devise:User`
 
@@ -297,8 +304,8 @@ ensuite suivre les étapes
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower`
 
-
-> #Suivre l'utilisateur spécifié
+#Suivre l'utilisateur spécifié
+* rails g controller Relationships create destroy
 
 >  def follow!(other_user)
 >    active_relationships.create!(followed_id: other_user.id)
@@ -362,6 +369,8 @@ ensuite suivre les étapes
  les utilisateur peuvent contribuer à la promotion d'une startup en l'ajoutant dans ses startup favoris. Il il y aura un compte des favoris et le startup en tête des compte sera affiché en premier.
  
 * ` rails g controller favorites `
+
+* rails g model favorite user_id:integer blog_id:integer
 * ` rails db:migrate`
 
 créer les relations de tables
@@ -405,3 +414,34 @@ créer les relations de tables
           <% end %>
       <% end %>
  > <% end %>
+        
+        
+   #FONCTION COMMENTAIRES
+   $ rails g model Comment startup:references content:text
+   
+   Comment belongs_to :startup
+   Stattup has_many :comments, dependent: :destroy
+    
+   routes
+   resources :startups do
+    resources :comments
+   end
+   
+   
+   # message funtion
+  
+    $ rails g controller Messages
+    
+   * messages_controller
+   
+   $ rails g model conversation sender_id:integer recipient_id:integer
+   
+   * migration conversation
+    add_index :conversations, :sender_id
+    add_index :conversations, :recipient_id
+    add_index :conversations, [:sender_id, :recipient_id], unique: true
+   
+   
+   * model  conversation.rb   
+   
+   $ rails g model message body:text conversation:references user:references read:boolean
